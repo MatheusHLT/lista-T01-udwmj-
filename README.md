@@ -1,5 +1,3 @@
-# -
-
 # lista-T01-udwmj
 Aluno: Matheus Honorato Leite Teixeira
 RA: 1261929133
