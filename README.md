@@ -30,7 +30,7 @@ RA: 1261929133
 
 **b)** `@quantidade` permite mostrar o valor da variável no HTML. Esse conceito está relacionado à **vinculação de dados (data binding)**.
 
-**c)** Ao clicar no botão, o método `Incrementar()` é executado, altera o valor da variável e a interface é atualizada.
+**c)** Ao clicar no botão, o método `Incrementar()` é executado, altera o valor da variável e a interface é atualizada incrementando +1 no valor da variável.
 
 ---
 
