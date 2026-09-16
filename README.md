@@ -38,23 +38,36 @@ RA: 1261929133
 
 **a)** Utilizamos **`[Parameter]`** na propriedade do componente filho.
 
-**b)** O componente pai pode passar um título para o componente filho:
+**b)** O componente pai `PaginaVendas.razor` passa um título para o componente filho `CartaoProduto.razor` através de um parâmetro.
+
+**PaginaVendas.razor:**
 
 ```razor
-<CartaoProduto Titulo="Notebook" />
+<h1>Página de Vendas</h1>
+
+<CartaoProduto Titulo="Notebook Dell" />
 ```
 
-E o filho recebe o valor através de:
+**CartaoProduto.razor:**
 
-```csharp
-[Parameter]
-public string Titulo { get; set; }
+```razor
+<div>
+    <h2>@Titulo</h2>
+</div>
+
+@code {
+    [Parameter]
+    public string Titulo { get; set; }
+}
 ```
 
----
+Nesse exemplo, o componente `PaginaVendas` envia **"Notebook Dell"** para o componente `CartaoProduto`, que recebe o valor pelo `[Parameter]` e o exibe na tela.
+
 
 ## Exercício 5 — Desafio de Pensamento Arquitetural
 
-**a)** `Console.ReadLine()` bloqueia a execução esperando uma entrada do usuário, algo que não funciona dessa maneira em aplicações web.
+**a)** `Console.ReadLine()` é uma lógica bloqueante porque o programa fica parado esperando o usuário digitar alguma coisa. Em uma aplicação web, a página precisa continuar funcionando enquanto aguarda as ações do usuário, então esse modelo de espera não é adequado.
 
-**b)** O Blazor utiliza um modelo **orientado a eventos**, como `@onclick`, para executar ações quando o usuário interage com a página.
+**b)** No Blazor, essa espera é substituída pelo modelo orientado a eventos. A aplicação continua funcionando e, quando o usuário realiza alguma ação, como clicar em um botão, um evento é acionado e executa o método correspondente.
+
+Por exemplo, `@onclick` detecta o clique e chama uma função, sem precisar deixar o programa parado esperando pela ação do usuário.
